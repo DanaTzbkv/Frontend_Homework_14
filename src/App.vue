@@ -12,7 +12,7 @@ export default {
     return {
       msg: "Test message",
       headingClass: "main-heading",
-      type: "B",
+      type: "A",
       books: ['book1', 'book2', 'book3', 'book4'],
       users: [
         {
@@ -61,15 +61,28 @@ export default {
 </script>
 
 <template>
-      <h3 v-if="type ==='A'">A</h3>
+      
 
-<h3 v-else-if="type ==='B'">B</h3>
+<!-- <button @click="console.log('click')">Click on me!</button> -->
 
-<h3 v-else-if="type ==='C'">C</h3>
+
+
+
+  <header>
+    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+
+
+    <h3 v-if="type ==='A'"></h3>
+
+<h3 v-else-if="type ==='B'"></h3>
+
+<h3 v-else-if="type ==='C'"></h3>
 
 <h3 v-else>Not A/B/C</h3>
 
 <h2 v-show="type ==='B'">Выбран вариант B</h2>
+<h2 v-show="type ==='C'">Выбран вариант C</h2>
+<h2 v-show="type ==='A'">Выбран вариант A</h2>
 
 <ul>
   <li v-for="(book, index) in books" :key="index">{{book}}</li>
@@ -81,23 +94,18 @@ export default {
 </li>
 </ol>
 
-<!-- <button @click="console.log('click')">Click on me!</button> -->
 
-<div>
+    <div>
 <!-- <button @click="increment">Counter</button> -->
 <button @click="count++">Прибавить</button>
 <button @click="count--">Убавить</button>
-<p v-show="count === 11 || count === -11">Вы превысили порог +-10</p>
+<p v-show="count > 10 || count < -10">Вы превысили порог +-10</p>
 <p>{{ count }}</p>
 </div>
 
 
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
-
-
-    <div class="wrapper">
+    <!-- <div class="wrapper">
 
       <h1 :class="headingClass">{{msg.split('').reverse().join('') }}</h1>
 
@@ -109,7 +117,7 @@ export default {
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
       </nav>
-    </div>
+    </div> -->
   </header>
 
   <RouterView />
@@ -151,7 +159,7 @@ nav a:first-of-type {
   border: 0;
 }
 
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
   header {
     display: flex;
     place-items: center;
@@ -176,9 +184,48 @@ nav a:first-of-type {
     padding: 1rem 0;
     margin-top: 1rem;
   }
+} */
+
+
+
+ul {
+  border: 2px solid #41B883;
+  border-radius: 5px;
+  margin: 20px 0px;
+}
+
+ol {
+  border: 2px solid #41B883;
+  border-radius: 5px;
+  margin: 20px 0px;
+}
+
+button {
+  background-color: #34495E;
+  color: white;
+  border-radius: 3px;
+  margin: 0px 5px 0px 5px;
+  width: 150px;
+  height: 25px;
+  font-size: 15px;
+}
+
+p {
+  border: 2px solid #34495E;
+  border-radius: 5px;
+  margin: 20px 0px;
+  text-align: center;
 }
 
 .red-text {
   color: red;
 }
+
+h2 {
+  border: 2px solid #41B883;
+  border-radius: 5px;
+  margin: 20px 0px;
+  text-align: center;
+}
+
 </style>
